@@ -5,6 +5,15 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const bodyStyle: React.CSSProperties = {
+  fontSize: 16,
+  lineHeight: 1.5,
+  margin: 0,
+  padding: 0,
+  color: "#333",
+  backgroundColor: "#fff",
+};
+
 export const metadata: Metadata = {
   title: "Slack Clone",
   description: "Slack Clone created with Next.js",
@@ -25,8 +34,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <body className={inter.className}>
-          {" "}
+        <body className={inter.className} style={bodyStyle}>
           <AntdRegistry>{children}</AntdRegistry>
         </body>
       </html>

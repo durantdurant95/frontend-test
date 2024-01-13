@@ -1,20 +1,9 @@
 "use client";
-import useUserStore from "@/store/useUserStore";
 import { Flex, Typography } from "antd";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import LoginForm from "./components/LoginForm";
 
 export default function Home() {
   const { Title } = Typography;
-
-  const router = useRouter();
-  const user = useUserStore.use.user();
-
-  useEffect(() => {
-    if (user === null) {
-      router.push("/auth");
-    }
-  }, [user, router]);
   return (
     <main>
       <Flex
@@ -23,7 +12,12 @@ export default function Home() {
         align="center"
         style={{ height: "100vh" }}
       >
-        <Title>Usuario autenticado</Title>
+        <Title level={1}>Inicia sesión en Slack</Title>
+        <p>
+          Te sugerimos que uses la{" "}
+          <span>dirección de correo que utilizas en el trabajo.</span>
+        </p>
+        <LoginForm />
       </Flex>
     </main>
   );

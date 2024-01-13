@@ -1,8 +1,6 @@
 "use client";
-import useUserStore from "@/store/useUserStore";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 type FieldType = {
   email?: string;
@@ -10,20 +8,11 @@ type FieldType = {
 };
 
 const LoginForm = () => {
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const setUser = useUserStore.use.setUser();
-
-  const onFinish = (values: any) => {
+  const onFinish = async (values: FieldType) => {
     console.log("Success:", values);
-    setUser(values);
-
-    // Simulate loading state
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      router.push("/");
-    }, 2000); // Adjust the delay as needed
+    //navigate to home
+    router.push("/home");
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -34,7 +23,7 @@ const LoginForm = () => {
       name="login"
       layout="vertical"
       labelCol={{ span: 8 }}
-      style={{ width: 500, gap: 20, display: "flex", flexDirection: "column" }}
+      style={{ width: 400, gap: 16, display: "flex", flexDirection: "column" }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
@@ -62,7 +51,7 @@ const LoginForm = () => {
 
       <Form.Item>
         <Button
-          loading={loading}
+          //   loading={loading}
           block
           size="large"
           type="primary"
