@@ -1,17 +1,16 @@
-import { Flex } from "antd";
+import CompanyDropdown from "./CompanyDropdown";
 
 const ChannelsContainer = () => {
   return (
-    <Flex
-      vertical
-      style={{
-        width: 300,
-        border: "1px solid #f0f0f0",
-        padding: 8,
-      }}
+    <section
+      style={{ borderRight: "1px solid purple", padding: 12, width: 300 }}
     >
-      Organization Name
-    </Flex>
+      <CompanyDropdown />
+      <ul>
+        <li># general</li>
+        <li># random</li>
+      </ul>
+    </section>
   );
 };
 

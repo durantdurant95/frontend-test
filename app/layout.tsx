@@ -12,6 +12,7 @@ const bodyStyle: React.CSSProperties = {
   padding: 0,
   color: "#333",
   backgroundColor: "#fff",
+  height: "100vh",
 };
 
 export const metadata: Metadata = {

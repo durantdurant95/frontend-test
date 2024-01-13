@@ -1,50 +1,21 @@
-"use client";
-import { Layout } from "antd";
-import SlackHeader from "../components/SlackHeader";
-
-type Props = {};
-
-const { Header, Footer, Sider, Content } = Layout;
-
-const headerStyle: React.CSSProperties = {
+const sectionStyle: React.CSSProperties = {
   textAlign: "center",
-  backgroundColor: "#fff",
-  padding: 0,
-  height: "auto",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
-const contentStyle: React.CSSProperties = {
-  textAlign: "center",
-};
-
-const siderStyle: React.CSSProperties = {
-  textAlign: "center",
-};
-
-const footerStyle: React.CSSProperties = {
-  textAlign: "center",
-};
-
-const layoutStyle = {
-  overflow: "hidden",
-  width: "100%",
-  height: "100vh",
-};
-
-const Home = (props: Props) => {
+const Home = () => {
   return (
-    <Layout style={layoutStyle}>
-      <Sider width="25%" style={siderStyle}>
-        Sider
-      </Sider>
-      <Layout>
-        <Header style={headerStyle}>
-          <SlackHeader />
-        </Header>
-        <Content style={contentStyle}>Content</Content>
-        <Footer style={footerStyle}>Footer</Footer>
-      </Layout>
-    </Layout>
+    <section style={sectionStyle}>
+      <h1>Welcome to Slack 👋</h1>
+      <h5>Select a channel to start communicating 💬</h5>
+      <p>
+        Slack is a new way to communicate with your team. It’s faster, better
+        organized, and more secure than email.
+      </p>
+    </section>
   );
 };
 

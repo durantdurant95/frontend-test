@@ -1,10 +1,12 @@
+"use client";
+
 import {
   HistoryOutlined,
   LeftOutlined,
   QuestionCircleOutlined,
   RightOutlined,
 } from "@ant-design/icons";
-import { Button, Input, Layout } from "antd";
+import { Button, Input } from "antd";
 
 const headerStyle: React.CSSProperties = {
   display: "flex",
@@ -15,10 +17,8 @@ const headerStyle: React.CSSProperties = {
 };
 
 const SlackHeader = () => {
-  const { Header } = Layout;
-
   return (
-    <Header style={headerStyle}>
+    <header style={headerStyle}>
       <div style={{ display: "flex", gap: "10px", paddingLeft: 220 }}>
         <Button type="text" icon={<LeftOutlined />} />
         <Button type="text" icon={<RightOutlined />} />
@@ -26,7 +26,7 @@ const SlackHeader = () => {
         <Input.Search placeholder="Search..." style={{ width: 500 }} />
       </div>
       <Button type="text" icon={<QuestionCircleOutlined />} />
-    </Header>
+    </header>
   );
 };
 

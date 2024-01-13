@@ -1,34 +1,33 @@
-"use client";
-import { Layout } from "antd";
-import React from "react";
-import SlackContent from "../components/SlackContent";
+import ChannelsContainer from "../components/ChannelsContainer";
+import SideBar from "../components/SideBar";
 import SlackHeader from "../components/SlackHeader";
-import SlackSider from "../components/SlackSider";
 
-const { Header, Footer, Sider, Content } = Layout;
-
-const headerStyle: React.CSSProperties = {
-  textAlign: "center",
-  backgroundColor: "#fff",
-  padding: 0,
-  height: "auto",
-};
-
-const layoutStyle = {
+const mainStyle: React.CSSProperties = {
   overflow: "hidden",
-  width: "100%",
-  height: "100vh",
+  backgroundColor: "#f0f0f0",
 };
 
-const Homelayout = () => {
+const Homelayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Layout style={layoutStyle}>
-      <SlackSider />
-      <Layout>
-        <SlackHeader />
-        <SlackContent />
-      </Layout>
-    </Layout>
+    <main style={mainStyle}>
+      <SlackHeader />
+      <div style={{ display: "flex" }}>
+        <SideBar />
+        <div
+          style={{
+            display: "flex",
+            border: "1px solid purple",
+            marginRight: 8,
+            marginBottom: 8,
+            borderRadius: 8,
+            flex: 1,
+          }}
+        >
+          <ChannelsContainer />
+          {children}
+        </div>
+      </div>
+    </main>
   );
 };
 
