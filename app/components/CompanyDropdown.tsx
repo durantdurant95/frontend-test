@@ -1,5 +1,6 @@
 "use client";
 
+import { useUserStore } from "@/zustand/useUser";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Divider, Dropdown, MenuProps, Space } from "antd";
 import React from "react";
@@ -51,6 +52,7 @@ const items: MenuProps["items"] = [
 ];
 
 const CompanyDropdown = () => {
+  const email = useUserStore.use.email();
   const contentStyle: React.CSSProperties = {
     backgroundColor: "fff",
   };
@@ -82,7 +84,7 @@ const CompanyDropdown = () => {
               <Avatar icon={<UserOutlined />} shape="square" />
               <div>
                 <strong>Your Company</strong>
-                <div>Email</div>
+                <div>{email}</div>
               </div>
             </div>
           </Space>

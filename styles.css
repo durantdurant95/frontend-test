@@ -1,0 +1,9 @@
+.message-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message-container:hover {
+  background-color: gray;
+}

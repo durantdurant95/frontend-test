@@ -8,6 +8,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Avatar, Button, Menu } from "antd";
+import { useRouter } from "next/navigation";
 
 const SiderStyle: React.CSSProperties = {
   overflowY: "auto",
@@ -20,26 +21,31 @@ const SiderStyle: React.CSSProperties = {
   height: "calc(100vh - 72px)",
 };
 
-const menuItems = [
-  {
-    key: "1",
-    icon: <HomeOutlined />,
-  },
-  {
-    key: "2",
-    icon: <MessageOutlined />,
-  },
-  {
-    key: "3",
-    icon: <BellOutlined />,
-  },
-  {
-    key: "4",
-    icon: <EllipsisOutlined />,
-  },
-];
-
 const SideBar = () => {
+  const router = useRouter();
+
+  const menuItems = [
+    {
+      key: "1",
+      icon: <HomeOutlined />,
+      onClick: () => {
+        router.push("/home");
+      },
+    },
+    {
+      key: "2",
+      icon: <MessageOutlined />,
+    },
+    {
+      key: "3",
+      icon: <BellOutlined />,
+    },
+    {
+      key: "4",
+      icon: <EllipsisOutlined />,
+    },
+  ];
+
   return (
     <div style={SiderStyle}>
       <div style={{ display: "flex", justifyContent: "center" }}>

@@ -1,0 +1,11 @@
+.messageContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.messageContainer:hover {
+  background-color: white;
+}
