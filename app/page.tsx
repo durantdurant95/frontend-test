@@ -12,10 +12,9 @@ export default function Home() {
         align="center"
         style={{ height: "100vh" }}
       >
-        <Title level={1}>Inicia sesión en Slack</Title>
+        <Title level={1}>Login to Slack</Title>
         <p>
-          Te sugerimos que uses la{" "}
-          <span>dirección de correo que utilizas en el trabajo.</span>
+          We suggest using the <strong>email address you use at work.</strong>
         </p>
         <LoginForm />
       </Flex>

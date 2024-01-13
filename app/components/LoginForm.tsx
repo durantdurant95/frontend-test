@@ -1,6 +1,7 @@
 "use client";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 type FieldType = {
   email?: string;
@@ -9,10 +10,16 @@ type FieldType = {
 
 const LoginForm = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   const onFinish = async (values: FieldType) => {
     console.log("Success:", values);
+    setIsLoading(true);
     //navigate to home
-    router.push("/home");
+    setTimeout(() => {
+      router.push("/home");
+      setIsLoading(false);
+    }, 2000);
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -32,8 +39,8 @@ const LoginForm = () => {
         label="Email"
         name="email"
         rules={[
-          { required: true, message: "Por favor introduzca su email" },
-          { type: "email", message: "Este no es un email válido" },
+          { required: true, message: "Please enter your email" },
+          { type: "email", message: "This is not a valid email" },
         ]}
       >
         <Input />
@@ -42,22 +49,20 @@ const LoginForm = () => {
       <Form.Item<FieldType>
         label="Password"
         name="password"
-        rules={[
-          { required: true, message: "Por favor introduzca su contraseña" },
-        ]}
+        rules={[{ required: true, message: "Please enter your password" }]}
       >
         <Input.Password />
       </Form.Item>
 
       <Form.Item>
         <Button
-          //   loading={loading}
+          loading={isLoading}
           block
           size="large"
           type="primary"
           htmlType="submit"
         >
-          Iniciar sesión
+          Login
         </Button>
       </Form.Item>
     </Form>
